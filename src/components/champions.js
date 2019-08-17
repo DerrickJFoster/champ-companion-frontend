@@ -24,7 +24,7 @@ class Champions extends Component {
         {Object.entries(this.state.data.data).map(champion => {
           return (
             <div className='Champions'>
-              <div key={champion.id} className='champCards'>
+              <div key={champion.leagueId} className='champCards'>
                 <h2>{champion[0]}</h2>
                 <p>{champion[1].blurb}</p>
               </div>

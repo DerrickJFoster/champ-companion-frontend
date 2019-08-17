@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 
 require('dotenv').config()
 const HOST = process.env.REACT_APP_DB_HOST ?
-  process.env.REACT_APP_DB_HOST : 'localhost:3000'
+  process.env.REACT_APP_DB_HOST : 'http://localhost:3000'
 
 const ITEMHOST = process.env.REACT_APP_ITEM_URL ?
-  process.env.REACT_APP_ITEM_URL : 'localhost:3000/items'
+  process.env.REACT_APP_ITEM_URL : 'http://localhost:3000/items'
 
 class MyChampions extends Component {
   state = {
@@ -26,6 +26,7 @@ console.log(HOST);
    }
 
    getItem = () => {
+     console.log(ITEMHOST);
      fetch(ITEMHOST)
        .then(response => response.json())
        .then(json => this.setState({items: json}))
@@ -42,12 +43,12 @@ console.log(HOST);
   render() {
     return (
       <>
-      <form>
-      <label>Add champions and items to your list</label>
-      <br/>
-      <input placeholder='Champion Name'/>
-      <input placeholder='Items List'/>
-      </form>
+        <form>
+          <label>Add champions and items to your list</label>
+          <br/>
+          <input placeholder='Champion Name'/>
+          <input placeholder='Items List'/>
+        </form>
       <button type='submit'>Add to list</button>
       {/* <button onClick={this.handleAddChamp}>Add Champ</button> */}
       {/* <button onClick={this.handleAddItem}>Add Item</button> */}
@@ -58,7 +59,7 @@ console.log(HOST);
           return (
         <>
           {/* <button>Edit Champ</button> */}
-            <div key={champion.id} className='myChampCards'>
+            <div key={champion.leagueId} className='myChampCards'>
               <h3>Name: {champion.name}</h3>
             </div>
 
