@@ -4,6 +4,9 @@ require('dotenv').config()
 const HOST = process.env.REACT_APP_DB_HOST ?
   process.env.REACT_APP_DB_HOST : 'localhost:3000'
 
+const ITEMHOST = process.env.REACT_APP_ITEM_URL ?
+  process.env.REACT_APP_ITEM_URL : 'localhost:3000/items'
+
 class MyChampions extends Component {
   state = {
 
@@ -23,7 +26,7 @@ console.log(HOST);
    }
 
    getItem = () => {
-     fetch(HOST + '/items')
+     fetch(ITEMHOST)
        .then(response => response.json())
        .then(json => this.setState({items: json}))
        .catch(err => console.log(err))
