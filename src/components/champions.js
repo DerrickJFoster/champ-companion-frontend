@@ -10,7 +10,7 @@ class Champions extends Component {
    }
 
    getChampion = () => {
-     fetch('http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json')
+     fetch('https://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json')
        .then(response => response.json())
        .then(json => this.setState({data: json}))
        .catch(err => console.log(err))
