@@ -23,7 +23,7 @@ console.log(HOST);
    }
 
    getItem = () => {
-     fetch('http://localhost:3000/items')
+     fetch(HOST + '/items')
        .then(response => response.json())
        .then(json => this.setState({items: json}))
        .catch(err => console.log(err))
