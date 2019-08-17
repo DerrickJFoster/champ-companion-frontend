@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 
+require('dotenv').config()
+const HOST = process.env.REACT_APP_DB_HOST ?
+  process.env.REACT_APP_DB_HOST : 'localhost:3000'
+
 class MyChampions extends Component {
   state = {
 
@@ -11,7 +15,8 @@ class MyChampions extends Component {
    }
 
    getChampion = () => {
-     fetch('http://localhost:3000/champions')
+console.log(HOST);
+     fetch(HOST)
        .then(response => response.json())
        .then(json => this.setState({champions: json}))
        .catch(err => console.log(err))
